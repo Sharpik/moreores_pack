@@ -18,13 +18,40 @@ minetest.register_node(":technic:zinc_block", {
 })
 
 minetest.register_craftitem(":technic:zinc_lump", {
-	description = S("Zinc Lump"),
+	description = "Zinc Lump",
 	inventory_image = "technic_zinc_lump.png",
 })
 
 minetest.register_craftitem(":technic:zinc_ingot", {
-	description = S("Zinc Ingot"),
+	description = "Zinc Ingot",
 	inventory_image = "technic_zinc_ingot.png",
+})
+
+local lump = "technic:zinc_lump"
+local ingot = "technic:zinc_ingot"
+local block = "technic:zinc_block"
+
+minetest.register_craft({
+	type = 'cooking',
+	recipe = lump,
+	output = ingot,
+})
+
+minetest.register_craft( {
+ 	output = block.." 1",
+ 	recipe = {
+ 		{ ingot, ingot, ingot },
+ 		{ ingot, ingot, ingot },
+		{ ingot, ingot, ingot }
+ 	}
+})
+
+minetest.register_craft( {
+ 	output = ingot.." 9",
+ 	type = "shapeless",
+ 	recipe = {
+ 		block
+ 	},
 })
 
 minetest.register_ore({

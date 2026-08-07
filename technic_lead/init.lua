@@ -27,6 +27,33 @@ minetest.register_craftitem(":technic:lead_ingot", {
 	inventory_image = "technic_lead_ingot.png",
 })
 
+local lump = "technic:lead_lump"
+local ingot = "technic:lead_ingot"
+local block = "technic:lead_block"
+
+minetest.register_craft({
+	type = 'cooking',
+	recipe = lump,
+	output = ingot,
+})
+
+minetest.register_craft( {
+ 	output = block.." 1",
+ 	recipe = {
+ 		{ ingot, ingot, ingot },
+ 		{ ingot, ingot, ingot },
+		{ ingot, ingot, ingot }
+ 	}
+})
+
+minetest.register_craft( {
+ 	output = ingot.." 9",
+ 	type = "shapeless",
+ 	recipe = {
+ 		block
+ 	},
+})
+
 minetest.register_ore({
 	ore_type = "scatter",
 	ore = "technic:mineral_lead",
