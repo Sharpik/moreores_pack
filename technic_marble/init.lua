@@ -16,6 +16,31 @@ minetest.register_node( ":technic:marble_bricks", {
 	sounds = default_stone_sounds,
 })
 
+if stairs then
+
+	stairs.register_stair_and_slab(
+		"technic:marble",
+		"technic:marble",
+		{cracky = 3},
+		{"technic_marble.png"},
+		"Marble Stair",
+		"Marble Slab",
+		default_stone_sounds,
+		true
+	)
+
+	stairs.register_stair_and_slab(
+		"technic:marble_bricks",
+		"technic:marble_bricks",
+		{cracky = 3},
+		{"technic_marble_bricks.png"},
+		"Marble Bricks Stair",
+		"Marble Bricks Slab",
+		default_stone_sounds,
+		true
+	)
+end
+
 minetest.register_ore({
 	ore_type = "sheet",
 	ore = "technic:marble",
